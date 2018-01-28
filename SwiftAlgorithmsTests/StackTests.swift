@@ -1,17 +1,17 @@
 //
 //  StackTests.swift
-//  SwiftAlogrithmsTests
+//  SwiftAlgorithmsTests
 //
 //  Created by Wayne on 1/27/18.
 //  Copyright © 2018 Syzygy Softwerks LLC. All rights reserved.
 //
 
 import XCTest
-@testable import SwiftAlogrithms
+@testable import SwiftAlgorithms
 
 class StackTests: XCTestCase {
 
-	var stack = Stack<String>()	/// If the stack is empty, the value of this property is `nil`.
+	var stack = Stack<String>()
 
     func testStack() {
 
