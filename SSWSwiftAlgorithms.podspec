@@ -13,7 +13,8 @@ DESC
   s.license = { :type => "MIT", :file => "LICENSE" }
   s.author = { "Wayne Mock" => "syzygysoftwerks@gmail.com" }
   s.social_media_url = "http://twitter.com/wayne_mock"
-  s.platforms = { :ios => "8.0", :osx => "10.9", :tvos => "9.0", :watchos => "2.0" }
+  s.platforms = { :ios => "10.0", :osx => "10.12", :tvos => "10.0", :watchos => "3.0" }
+  s.swift_version = "4"
   s.source = { :git => "https://github.com/waynemock/ssw-swift-algorithms.git", :tag => "#{s.version}" }
   s.source_files = "SwiftAlgorithms/**/*.{swift}"
   s.requires_arc = true
