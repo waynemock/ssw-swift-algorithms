@@ -1,6 +1,6 @@
 //
 //  Stack.swift
-//  SwiftAlogrithms
+//  SwiftAlgorithms
 //
 //  Created by Wayne on 1/27/18.
 //  Copyright © 2018 Syzygy Softwerks LLC. All rights reserved.
