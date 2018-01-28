@@ -17,31 +17,29 @@ class StackTests: XCTestCase {
 
 		XCTAssertTrue(stack.isEmpty)
 		XCTAssertNil(stack.top)
-		XCTAssertNil(stack.peek())
 		XCTAssert(stack.count == 0)
 		XCTAssertNil(stack.pop())
+		XCTAssert(stack.description == "[]");
 
 		stack.push("A")
 		stack.push("B")
 		stack.push("C");
 
+		XCTAssert(stack.description == "[C, B, A]");
 		XCTAssertFalse(stack.isEmpty)
 		XCTAssert(stack.count == 3)
-		XCTAssert(stack.top == stack.peek())
 		XCTAssert(stack.top == "C")
 
 		var value = stack.pop()
 
 		XCTAssert(value == "C")
 		XCTAssert(stack.count == 2)
-		XCTAssert(stack.top == stack.peek())
 		XCTAssert(stack.top == "B")
 
 		value = stack.pop()
 
 		XCTAssert(value == "B")
 		XCTAssert(stack.count == 1)
-		XCTAssert(stack.top == stack.peek())
 		XCTAssert(stack.top == "A")
 
 		value = stack.pop()
@@ -49,7 +47,7 @@ class StackTests: XCTestCase {
 		XCTAssertTrue(stack.isEmpty)
 		XCTAssert(value == "A")
 		XCTAssert(stack.count == 0)
-		XCTAssert(stack.top == stack.peek())
 		XCTAssertNil(stack.top)
-    }
+		XCTAssert(stack.description == "[]");
+   }
 }

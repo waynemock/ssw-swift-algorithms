@@ -10,24 +10,24 @@ import Foundation
 
 /// Provides a basic LIFO stack data structure.
 struct Stack<Element> {
-	private var array: [Element] = []
+	fileprivate var array: [Element] = []
 
 	/// A Boolean value indicating whether the stack is empty.
 	/// - Complexity: O(1)
-	var isEmpty: Bool {
+	public var isEmpty: Bool {
 		return array.isEmpty
 	}
 
 	/// The number of elements in the array.
 	/// - Complexity: O(1)
-	var count: Int {
+	public var count: Int {
 		return array.count
 	}
 
 	/// The top element on the stack.
 	///
 	/// If the stack is empty, the value of this property is `nil`.
-	var top: Element? {
+	public var top: Element? {
 		return array.last
 	}
 
@@ -48,7 +48,7 @@ struct Stack<Element> {
 	/// - Complexity: Amortized O(1) over many additions. If the stack uses an
 	///   `Array` instance as its storage, the efficiency is
 	///   unspecified.
-	mutating func push(_ element: Element) {
+	public mutating func push(_ element: Element) {
 		array.append(element)
 	}
 
@@ -59,22 +59,25 @@ struct Stack<Element> {
 	///
 	/// - Complexity: O(*n*) if the stack is bridged, where *n* is the length
 	///   of the array; otherwise, O(1).
-	mutating func pop() -> Element? {
+	public mutating func pop() -> Element? {
 		return array.popLast()
 	}
+}
 
-	/// Returns the top element of the stack.
-	///
-	/// If the stack is empty, the value of this property is `nil`.
-	func peek() -> Element? {
-		return top
+extension Stack: Sequence {
+	public func makeIterator() -> AnyIterator<Element> {
+		var curr = self
+		return AnyIterator {
+			return curr.pop()
+		}
 	}
 }
 
 extension Stack: CustomStringConvertible {
 	/// A textual representation of the stack and its elements.
-	var description: String {
-		return array.reversed().description
+	public var description: String {
+		let stackElements = array.map { "\($0)" }.reversed().joined(separator: ", ")
+		return "[" + stackElements + "]"
 	}
 }
 
